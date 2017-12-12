@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Cadastro de Currículos</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="registers_not_found">Registros não encontrados.</string>
+    <string name="candidate_name">Nome do Candidato</string>
+    <string name="search">Procurar</string>
+    <string name="personal_data">Dados Pessoais</string>
+    <string name="formation">Formação</string>
+    <string name="professional_experience">Experiência Profissional</string>
+    <string name="courses">Cursos</string>
+    <string name="publications">Publicações</string>
+    <string name="select_candidate">Selecionar Candidato</string>
+    <string name="candidate_data">Dados do Candidato</string>
+    <string name="title_activity_register">RegisterActivity</string>
+</resources>
