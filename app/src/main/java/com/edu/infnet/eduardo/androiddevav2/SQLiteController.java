@@ -32,25 +32,27 @@ public class SQLiteController {
         return result;
     }
 
-//    public ArrayList select(String name){
-//        Cursor cursor;
-//        String[] campos =  {banco.ID,banco.TITULO};
-//        db = banco.getReadableDatabase();
-//        cursor = db.rawQuery("SELECT * FROM "+ SQLiteHelper.TABLE +
-//                "WHERE "+ SQLiteHelper.NOME+" LIKE '%"+name+"%'" +
-//                "ORDER BY "+ SQLiteHelper.NOME+" ASC", null);
-//
-//        ArrayList results = new ArrayList<HashMap>();
-//        String[] columns = cursor.getColumnNames();
-//        if(cursor != null){
-//            while (cursor.moveToNext()) {
-//                cursor.getColumnNames();
-//            }
-//        } else {
-//            results = null;
-//        }
-//        db.close();
-//        return results;
-//    }
-//    }
+    public ArrayList select(String name) {
+        Cursor cursor;
+        db = db_helper.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM " + SQLiteHelper.TABLE +
+                "WHERE " + SQLiteHelper.NOME + " LIKE '%" + name + "%'" +
+                "ORDER BY " + SQLiteHelper.NOME + " ASC", null);
+
+        ArrayList results = new ArrayList<HashMap>();
+        String[] columns = cursor.getColumnNames();
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                HashMap map = new HashMap<String, String>();
+                for (String column : columns) {
+                    map.put(column, cursor.getString(cursor.getColumnIndex(column)));
+                }
+                results.add(map);
+            }
+        } else {
+            results = null;
+        }
+        db.close();
+        return results;
+    }
 }
