@@ -17,4 +17,8 @@
     <string name="select_candidate">Selecionar Candidato</string>
     <string name="candidate_data">Dados do Candidato</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">LOVE MUSIC</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
 </resources>

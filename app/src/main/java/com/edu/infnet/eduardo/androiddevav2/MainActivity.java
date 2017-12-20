@@ -1,6 +1,10 @@
 package com.edu.infnet.eduardo.androiddevav2;
 
 import android.Manifest;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.view.View;
@@ -30,6 +35,7 @@ import com.google.android.gms.ads.AdView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity
@@ -40,6 +46,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        mBuilder.setContentTitle("Novo cadastro!");
+        mBuilder.setSmallIcon(R.drawable.ic_menu_send);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setVibrate(new long[] {100, 1000});
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+        final NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,8 +77,11 @@ public class MainActivity extends AppCompatActivity
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        listItems.add(input.getText().toString());
+                        String name = input.getText().toString();
+                        listItems.add(name);
                         adapter.notifyDataSetChanged();
+                        mBuilder.setContentText(name+" cadastrado com sucesso!");
+                        mNotificationManager.notify(new Random().nextInt(), mBuilder.build());
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
