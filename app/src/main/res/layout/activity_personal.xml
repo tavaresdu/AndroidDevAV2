@@ -1,70 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.edu.infnet.eduardo.androiddevav2.PersonalActivity">
+    android:layout_height="match_parent" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/tools"
+        android:orientation="vertical">
 
         <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="250dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
-            card_view:cardCornerRadius="4dp">
+            android:id="@+id/card_view_name"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/thumbnail"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/album_cover_height"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:scaleType="fitXY" />
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
                 <TextView
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textViewNameTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/thumbnail"
-                    android:paddingLeft="@dimen/album_title_padding"
-                    android:paddingRight="@dimen/album_title_padding"
-                    android:paddingTop="@dimen/album_title_padding"
-                    android:textColor="@color/album_title"
-                    android:textSize="@dimen/album_title" />
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="Nome:"/>
 
                 <TextView
-                    android:id="@+id/count"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textViewNameValue"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/title"
-                    android:paddingBottom="@dimen/songs_count_padding_bottom"
-                    android:paddingLeft="@dimen/album_title_padding"
-                    android:paddingRight="@dimen/album_title_padding"
-                    android:textSize="@dimen/songs_count" />
-
-                <ImageView
-                    android:id="@+id/overflow"
-                    android:layout_width="@dimen/ic_album_overflow_width"
-                    android:layout_height="@dimen/ic_album_overflow_height"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/thumbnail"
-                    android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
-                    android:scaleType="centerCrop" />
-
+                    android:layout_below="@+id/textViewNameTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="Enzo Gabriel da Silva"/>
             </RelativeLayout>
-
         </android.support.v7.widget.CardView>
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_address"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/textViewAddressTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="Endereço:"/>
+
+                <TextView
+                    android:id="@+id/textViewAddressValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewAddressTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="Rua São José, 90 - Centro"/>
+
+                <Button
+                    android:id="@+id/buttonAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewAddressValue"
+                    android:text="Ver Mapa" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_province"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/textViewProvinceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="Estado:"/>
+
+                <TextView
+                    android:id="@+id/textViewProvinceValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewProvinceTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="Rio de Janeiro"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_city"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/textViewCityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="Cidade:"/>
+
+                <TextView
+                    android:id="@+id/textViewCityValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewCityTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="Rio de Janeiro"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/textViewPhoneTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="Telefone:"/>
+
+                <TextView
+                    android:id="@+id/textViewPhoneValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewPhoneTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="+55 21 99458-6475"/>
+
+                <Button
+                    android:id="@+id/buttonPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewPhoneValue"
+                    android:text="Ligar" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_email"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/textViewEmailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:textStyle="bold"
+                    android:text="E-mail:"/>
+
+                <TextView
+                    android:id="@+id/textViewEmailValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewEmailTitle"
+                    android:layout_marginTop="10dp"
+                    android:text="enzogabriel@gmail.com"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

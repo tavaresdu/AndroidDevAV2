@@ -15,6 +15,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.view.menu.MenuView;
 import android.text.InputType;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -147,7 +148,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_select_candidate) {
 
         } else if (id == R.id.nav_personal) {
-
+            Intent intent = new Intent(this, PersonalActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_formation) {
 
         } else if (id == R.id.nav_experience) {
